@@ -22,3 +22,9 @@ body {
   justify-content: center;
   text-align: center;
 }
+
+.main-container {
+  padding-bottom: 10%; 
+  padding-top: 10%; 
+}
+
