@@ -1,18 +1,22 @@
-import logo from "../assets/logo.png"; 
-import "./Header.css";
+import { Navbar, Container, Nav } from "react-bootstrap";
+import logo from "../assets/logo.png";
+import "./Header.scss";
 
 function Header() {
   return (
-    <header className="header">
-      <img src={logo} alt="Logo" className="logo" />
-      <nav>
-        <ul className="nav-list">
-          <li>
-            <a href="/">Accueil</a> 
-          </li>
-        </ul>
-      </nav>
-    </header>
+    <Navbar expand="lg" className="header">
+      <Container>
+        <div className="header-content">
+          <a href="/" className="logo-container">
+            <img src={logo} alt="Logo" className="logo" />
+          </a>
+
+          <Nav className="nav-links">
+            <Nav.Link href="/">Accueil</Nav.Link>
+          </Nav>
+        </div>
+      </Container>
+    </Navbar>
   );
 }
 
