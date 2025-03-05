@@ -1,6 +1,6 @@
 import { Card, Badge, Button } from "react-bootstrap";
 import { useContext } from "react";
-import { CartContext } from "../../context/CartContext"; // ✅ Import du contexte
+import { CartContext } from "../../context/CartContext"; 
 import "./Dish.scss";
 
 function Dish({ name, price, image, isNew }) {
