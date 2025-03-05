@@ -17,7 +17,6 @@ function Header() {
         <Navbar.Collapse id="navbar-nav">
           <Nav className="ms-auto">
             <Nav.Link href="/">Accueil</Nav.Link>
-            {/* ✅ Affichage dynamique du panier */}
             <Nav.Link href="#">Panier ({cartCount})</Nav.Link>
           </Nav>
         </Navbar.Collapse>
