@@ -2,7 +2,6 @@ import { Card, Badge, Button } from "react-bootstrap";
 import "./Dish.scss";
 
 function Dish({ name, price, image, isNew }) {
-  // ✅ Fonction pour gérer le clic sur "Ajouter au panier"
   const handleAddToCart = () => {
     alert(`Le plat ${name} a été ajouté à votre panier`);
   };
