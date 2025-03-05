@@ -1,11 +1,7 @@
 import { Card, Badge, Button } from "react-bootstrap";
 import "./Dish.scss";
 
-function Dish({ name, price, image, isNew }) {
-  const handleAddToCart = () => {
-    alert(`Le plat ${name} a été ajouté à votre panier`);
-  };
-
+function Dish({ name, price, image, isNew, addToCart }) {
   return (
     <Card className="dish-card">
       <div className="dish-img-container">
@@ -15,8 +11,8 @@ function Dish({ name, price, image, isNew }) {
       <Card.Body>
         <Card.Title>{name}</Card.Title>
         <Card.Text>{price}€</Card.Text>
-        <Button variant="primary" onClick={() => handleAddToCart(name)}>
-        Ajouter au panier
+        <Button variant="primary" onClick={addToCart}>
+          Ajouter au panier
         </Button>
       </Card.Body>
     </Card>

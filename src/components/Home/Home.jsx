@@ -29,7 +29,7 @@ const dishes = [
   }
 ];
 
-function Home() {
+function Home({ addToCart }) {
   const [showNewOnly, setShowNewOnly] = useState(false);
 
   const handleShowNewOnly = () => {
@@ -39,9 +39,11 @@ function Home() {
   const filteredDishes = dishes.filter(dish => {
     return dish.stock > 0 && (!showNewOnly || dish.isNew);
   });
-  
+
   return (
     <main className="main-container">
+      <h1>Bienvenue sur mon site</h1>
+
       <div className="filter-container">
         <Button variant="secondary" onClick={handleShowNewOnly}>
           {showNewOnly ? "Voir tous les plats" : "Nouveautés uniquement"}
@@ -57,6 +59,7 @@ function Home() {
                 price={dish.price}
                 image={dish.image}
                 isNew={dish.isNew}
+                addToCart={addToCart}
               />
             </Col>
           ))}
