@@ -29,7 +29,7 @@ const dishes = [
   }
 ];
 
-function Home({ addToCart }) {
+function Home() {
   const [showNewOnly, setShowNewOnly] = useState(false);
 
   const handleShowNewOnly = () => {
@@ -59,7 +59,6 @@ function Home({ addToCart }) {
                 price={dish.price}
                 image={dish.image}
                 isNew={dish.isNew}
-                addToCart={addToCart}
               />
             </Col>
           ))}
