@@ -15,8 +15,8 @@ function Dish({ name, price, image, isNew }) {
       <Card.Body>
         <Card.Title>{name}</Card.Title>
         <Card.Text>{price}€</Card.Text>
-        <Button variant="primary" onClick={handleAddToCart}>
-          Ajouter au panier
+        <Button variant="primary" onClick={() => handleAddToCart(name)}>
+        Ajouter au panier
         </Button>
       </Card.Body>
     </Card>

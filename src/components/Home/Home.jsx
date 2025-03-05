@@ -36,10 +36,10 @@ function Home() {
     setShowNewOnly(prevState => !prevState);
   };
 
-  const filteredDishes = dishes
-    .filter(dish => dish.stock > 0) 
-    .filter(dish => (showNewOnly ? dish.isNew : true)); 
-
+  const filteredDishes = dishes.filter(dish => {
+    return dish.stock > 0 && (!showNewOnly || dish.isNew);
+  });
+  
   return (
     <main className="main-container">
       <div className="filter-container">
