@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { CartContext } from "../../context/CartContext"; 
 
 function Header() {
-  const { cartCount } = useContext(CartContext); // ✅ Récupération du panier via useContext
+  const { cartCount } = useContext(CartContext); 
 
   return (
     <Navbar expand="lg" className="header">
