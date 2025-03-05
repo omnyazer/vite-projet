@@ -1,8 +1,12 @@
 import { Navbar, Container, Nav } from "react-bootstrap";
 import logo from "../../assets/logo.png";
 import "./Header.scss";
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext"; 
 
-function Header({ cartCount }) {
+function Header() {
+  const { cartCount } = useContext(CartContext); // ✅ Récupération du panier via useContext
+
   return (
     <Navbar expand="lg" className="header">
       <Container>
@@ -13,6 +17,7 @@ function Header({ cartCount }) {
         <Navbar.Collapse id="navbar-nav">
           <Nav className="ms-auto">
             <Nav.Link href="/">Accueil</Nav.Link>
+            {/* ✅ Affichage dynamique du panier */}
             <Nav.Link href="#">Panier ({cartCount})</Nav.Link>
           </Nav>
         </Navbar.Collapse>
