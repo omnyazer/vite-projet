@@ -1,5 +1,6 @@
+import { useState } from "react";
 import Dish from "../Dish/Dish";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 
 const dishes = [
   {
@@ -8,7 +9,7 @@ const dishes = [
     price: 3,
     image: "https://cdn.pixabay.com/photo/2016/08/23/08/53/tacos-1613795_960_720.jpg",
     isNew: true,
-    stock: 12 
+    stock: 12
   },
   {
     id: 2,
@@ -16,7 +17,7 @@ const dishes = [
     price: 12,
     image: "https://cdn.pixabay.com/photo/2014/01/14/22/13/mexican-245240_960_720.jpg",
     isNew: false,
-    stock: 0  
+    stock: 0
   },
   {
     id: 3,
@@ -24,15 +25,29 @@ const dishes = [
     price: 15,
     image: "https://cdn.pixabay.com/photo/2021/02/04/03/57/mole-5980185_960_720.jpg",
     isNew: false,
-    stock: 5  
+    stock: 5
   }
 ];
 
-const filteredDishes = dishes.filter(dish => dish.stock > 0);
-
 function Home() {
+  const [showNewOnly, setShowNewOnly] = useState(false);
+
+  const handleShowNewOnly = () => {
+    setShowNewOnly(prevState => !prevState);
+  };
+
+  const filteredDishes = dishes
+    .filter(dish => dish.stock > 0) 
+    .filter(dish => (showNewOnly ? dish.isNew : true)); 
+
   return (
-    <main className="main-container"> 
+    <main className="main-container">
+      <div className="filter-container">
+        <Button variant="secondary" onClick={handleShowNewOnly}>
+          {showNewOnly ? "Voir tous les plats" : "Nouveautés uniquement"}
+        </Button>
+      </div>
+
       <Container>
         <Row>
           {filteredDishes.map(dish => (
